@@ -1,0 +1,41 @@
+.headerCont { 
+    grid-area: header; 
+}
+
+.navCont { 
+    grid-area: navbar; 
+}
+
+.leftCont { 
+    grid-area: left; 
+}
+
+.mainCont { 
+    grid-area: main; 
+}
+
+.rightCont { 
+    grid-area: right; 
+}
+
+.footerCont { 
+    grid-area: footer; 
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'navbar navbar navbar navbar navbar navbar'
+    'left main main main main right'
+    'footer footer footer footer footer footer';
+  grid-gap: 2em;
+  background-color: #2196F3;
+  padding: 1em;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 1em 0;
+}
