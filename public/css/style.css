@@ -1,23 +1,45 @@
-* {
+/* * {
     box-sizing: border-box;
-}
+} */
 
 body {
     margin: 0;
     font-family: Arial;
     font-size: 17px;
+    flex: wrap;
 }
 
 #myVideo {
     position: fixed;
     min-width: 100%;
     min-height: 100%;
+    right: 0;
 }
 
 .container {
     position: absolute;
     background: rgba(0, 0, 0, 0.2);
-    color: #f1f1f1;
+    color: rgba(235, 116, 146, 0.911);
     width: 100%;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .projects-container {
+        flex-direction: row;
+    }
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    text-align: center;
+    padding: .2em;
+    opacity: .3;
+    color: #c2f1e7;
 }
