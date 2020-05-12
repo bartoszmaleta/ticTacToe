@@ -1,19 +1,12 @@
-body{
-
-}
-
 .game-grid{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-content: space-between;
     width: 20em;
     height: 20em;
     background-color: black;
-}
-
-.box {
-
 }
 
 button{

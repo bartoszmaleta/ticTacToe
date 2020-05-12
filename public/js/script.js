@@ -1,27 +1,42 @@
-isPlayerX = true;
-let count;
+const playerX = 'player-x';
+const playerO = 'player-o';
+
+let currentPlayer = playerX;
+
+function switchPlayers() {
+    if (currentPlayer === playerX) {
+        currentPlayer = playerO;
+        return currentPlayer;
+    } else {
+        currentPlayer = playerX;
+        return currentPlayer;
+    }
+}
 
 const buttons = document.querySelectorAll(".box");
 
-buttons.forEach(button => {
+for (let i = 0; i < buttons.length; i++) {
+    let button = buttons[i];
+    if (button.firstElementChild.className === '') {
+        function updateButtonStatus() {
+            let currentBox = button.firstElementChild;
+            currentBox.setAttribute("class", switchPlayers());
+            console.log(this.firstElementChild.className);
 
-    function updateButtonStatus() {
-        let currentBox = button.firstElementChild;
-        currentBox.setAttribute("class", 'player-x');
-        console.log(this);
-        button.removeEventListener('click', updateButtonStatus);
+            button.removeEventListener('click', updateButtonStatus);
+        }
+
+        button.addEventListener('click', updateButtonStatus);
+        // button.document.classList="player-x";
     }
-    button.addEventListener('click', updateButtonStatus);
-    // button.document.classList="player-x";
+};
 
-});
-
-// find all buttons *
+// TODO: find all buttons *
 //
-// add event addEventListener() to each button *
+// TODO: add event addEventListener() to each button *
 //
-// add class to button *
+// TODO: add class to button *
 //
-// disable button *
+// TODO: disable button *
 //
-// switch isPlayerX
+// TODO: switch isPlayerX *
