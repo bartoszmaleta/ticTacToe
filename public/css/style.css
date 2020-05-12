@@ -1,3 +1,23 @@
 body { 
-    font-size: 16px;
+    margin: 0;
+    /* font-size: 16px; */
 }
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+.grid-container.mainCont.board {
+    width: 5vw;
+    height: 50vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container.mainCont.board.cell {
+    width: 100px;
+    height: 100px;
+    background-attachment: black;
+}
+
