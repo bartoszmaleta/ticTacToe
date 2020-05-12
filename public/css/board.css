@@ -5,6 +5,7 @@
 :root {
     --cell-size: 100px;
     --mark-size: calc(var(--cell-size) * 0.9);
+    /* --path-x: ../../resources/icon/x2new.png; */
 
 }
 
@@ -23,8 +24,6 @@ body {
     align-items: center;
     grid-template-columns: repeat(3, auto);
 }
-
-
 
 .cell {
     width: var(--cell-size);
@@ -68,11 +67,19 @@ body {
     /* content: ''; */
     /* position: absolute; */
     /* background-color: red; */
+
     background-image: url(../../resources/icon/x2new.png)
 }
 
-.board.x .cell:hover {
-    background-image: url(../../resources/icon/x2new.png)   
+.board.x .cell:not(.x):not(.circle):hover {
+    background-image: url(../../resources/icon/x2new.png);
+    opacity: 0.2;   
+
+}
+
+.board.circle .cell:not(.x):not(.circle):hover {
+    background-image: url(../../resources/icon/circleNew.png);
+    opacity: 0.5;   
 }
 
 .cell.circle {
