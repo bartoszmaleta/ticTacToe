@@ -30,6 +30,10 @@ body {
     /* background-color: black; */
     /* border: 1px solid white; */
     border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .cell:first-child,
@@ -50,4 +54,15 @@ body {
 .cell:nth-child(8),
 .cell:nth-child(7) {
     border-bottom: none;
+}
+
+.cell.x {
+    /* content: ''; */
+    /* position: absolute; */
+    /* background-color: red; */
+    background-image: url(../../resources/icon/x2new.png)
+}
+
+.cell.circle {
+    background-image: url(../../resources/icon/circleNew.png);
 }
