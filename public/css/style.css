@@ -31,6 +31,17 @@ body {
         flex-direction: row;
     }
 }
+header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: red;
+    text-align: center;
+    padding: .2em;
+    opacity: .3;
+    color: #000000;
+}
 
 footer {
     position: fixed;
