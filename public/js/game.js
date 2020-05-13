@@ -23,17 +23,13 @@ startGame();
 
 restartButton.addEventListener('click', startGame);
 
-function chooseGameMode() {
-    const pvpButton = document.getElementById('pvpButton');
-    const pvaiButton = document.getElementById('pvaiButton');
-
-}
-
 function activatePvpMode() {
     board.classList.remove('pvp');
     board.classList.remove('pvai');
     board.classList.add('pvp');
     board.style = 'display: grid';
+    document.getElementById('pvpButton').style = 'display: none';
+    document.getElementById('pvaiButton').style = 'display: none';
 }
 
 function activatePvaiMode() {
@@ -41,10 +37,11 @@ function activatePvaiMode() {
     board.classList.remove('pvai');
     board.classList.add('pvai');
     board.style = 'display: grid';
+    document.getElementById('pvpButton').style = 'display: none';
+    document.getElementById('pvaiButton').style = 'display: none';
 }
 
 function startGame() {
-
     circleTurn = false;
     cellElements.forEach(cell => {
         // NEED FOR NEXT ROUNDS
@@ -63,61 +60,39 @@ function startGame() {
 
 function handleClick(e) {
 
-    // if ((!board.classList.contains('pvp')) || (!cell.classList.contains('pvai'))) {
-    //     cellElements.forEach(cell => {
-    //         cell.style = 'cursor: pointer';
-    //     })
-    // }
-
-
-
     console.log('clicked');
     const cell = e.target;
 
-    // Place mark
     if (board.classList.contains('pvp')) {
         let currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
         console.log('pvp')
 
-        //player turn
         placeMark(cell, currentClass);
-        // Check for win
-        if (checkWin(currentClass)) {
-            console.log('winner');
-            endGame(false);
 
-            // Check for Draw
+        if (checkWin(currentClass)) {
+            endGame(false);
         } else if (isDraw()) {
             endGame(true);
-
         } else {
-            // Switch Turns
             swapTurns();
             setBoardHoverClass();
         }
     } else if (board.classList.contains('pvai')) {
         let currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
 
-        console.log('pvai');
-        console.log(currentClass);
-
-        // player turn
         placeMark(cell, currentClass);
+        
         if (checkWin(currentClass)) {
-            console.log('winner');
             endGame(false);
 
-            // Check for Draw
         } else if (isDraw()) {
             endGame(true);
 
         } else {
-            // Switch Turns
             swapTurns();
             setBoardHoverClass();
         }
 
-        // ai turn
         currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
         try {
             aiPlaceMark(currentClass);
@@ -126,45 +101,16 @@ function handleClick(e) {
         }
 
         if (checkWin(currentClass)) {
-            console.log('winner');
             endGame(false);
-
-            // Check for Draw
         } else if (isDraw()) {
             endGame(true);
 
         } else {
-            // Switch Turns
             swapTurns();
             setBoardHoverClass();
         }
     }
 }
-
-
-// function handleClick(e) {
-//     console.log('clicked');
-//     const cell = e.target;
-//     const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
-
-//     // Place mark
-//     placeMark(cell, currentClass);
-
-//     // Check for win
-//     if (checkWin(currentClass)) {
-//         console.log('winner');
-//         endGame(false);
-
-//         // Check for Draw
-//     } else if (isDraw()) {
-//         endGame(true);
-
-//     } else {
-//         // Switch Turns
-//         swapTurns();
-//         setBoardHoverClass();
-//     }
-// }
 
 function isDraw() {
     return [...cellElements].every(cell => {
@@ -173,19 +119,14 @@ function isDraw() {
 }
 
 function endGame(draw) {
-    console.log('endGame');
-
     if (draw) {
         winningMessageTextElement.innerText = 'Draw!'
-        console.log('Draw')
-        board.style = 'display: none';
-
     } else {
-        // winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`;
         winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`
-        console.log('notDraw')
-        board.style = 'display: none';
     }
+    board.style = 'display: none';
+    document.getElementById('pvaiButton').style = 'display: inline';
+    document.getElementById('pvpButton').style = 'display: inline';
     winningMessageElement.classList.add('show');
 }
 
