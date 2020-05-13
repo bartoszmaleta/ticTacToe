@@ -43,10 +43,13 @@ function startGame() {
 function handleClick(e) {
     console.log('clicked');
     const cell = e.target;
-    const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
 
     // Place mark
     if (board.classList.contains('pvp')) {
+        let currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
+        console.log('pvp')
+
+        //player turn
         placeMark(cell, currentClass);
         // Check for win
         if (checkWin(currentClass)) {
@@ -63,6 +66,11 @@ function handleClick(e) {
             setBoardHoverClass();
         }
     } else if (board.classList.contains('pvai')) {
+        let currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
+
+        console.log('pvai');
+        console.log(currentClass);
+
         // player turn
         placeMark(cell, currentClass);
         if (checkWin(currentClass)) {
@@ -80,9 +88,12 @@ function handleClick(e) {
         }
 
         // ai turn
-        const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
-        let aiCellToMark = aiPlaceMark();
-        placeMark(aiCellToMark, currentClass);
+        currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
+        try {
+            aiPlaceMark(currentClass);
+        } catch (e) {
+            console.log(e);
+        }
 
         if (checkWin(currentClass)) {
             console.log('winner');
@@ -149,19 +160,16 @@ function placeMark(cell, currentClass) {
     cell.classList.add(currentClass);
 }
 
-function aiPlaceMark() {
-    let arrayWithCell = [];
-    // while (arrayWithCell.length === 0) {
-    //     const indexOfCell = Math.floor(Math.random() * (8 - 0)) + 0;
-    //     if (!cellElements[indexOfCell].classList.contains('x') || !cellElements[indexOfCell].classList.contains('circle')) {
-    //         arrayWithCell.push(cell);
-    //         return cell;
-    //     }
-    //     console.log('looping');
-        // for (cellElements.forEach(cell => {
-        //     if (cell.classList.)
-        // }))
-    // }
+function aiPlaceMark(currentClass) {
+    let arrayWithEmptyCells = [];
+    cellElements.forEach(cell => {
+        if ((!cell.classList.contains('x')) && (!cell.classList.contains('circle'))) {
+            arrayWithEmptyCells.push(cell);
+        }
+    })
+
+    let randomCell = arrayWithEmptyCells[Math.floor(Math.random() * arrayWithEmptyCells.length)];
+    randomCell.classList.add(currentClass);
 }
 
 function swapTurns() {
