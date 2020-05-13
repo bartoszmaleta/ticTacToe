@@ -23,21 +23,20 @@ startGame();
 
 restartButton.addEventListener('click', startGame);
 
-cellElements.forEach(cell => {
-    cell.addEventListener('click', handleClick, { once: true })
-});
-
 function startGame() {
     circleTurn = false;
     cellElements.forEach(cell => {
+        // NEED FOR NEXT ROUNDS
         cell.classList.remove(X_CLASS);
         cell.classList.remove(CIRCLE_CLASS);
         cell.removeEventListener('click', handleClick);
+
+        // NEED FOR FIRST ROUND AND NEXT ROUNDS
         cell.addEventListener('click', handleClick, { once: true })
     });
     setBoardHoverClass();
 
-    // setting new game
+    // NEED FOR NEXT ROUNDS
     winningMessageElement.classList.remove('show');
 }
 
@@ -47,28 +46,89 @@ function handleClick(e) {
     const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
 
     // Place mark
-    placeMark(cell, currentClass);
+    if (board.classList.contains('pvp')) {
+        placeMark(cell, currentClass);
+        // Check for win
+        if (checkWin(currentClass)) {
+            console.log('winner');
+            endGame(false);
 
-    // Check for win
-    if (checkWin(currentClass)) {
-        console.log('winner');
-        endGame(false);
+            // Check for Draw
+        } else if (isDraw()) {
+            endGame(true);
 
-        // Check for Draw
-    } else if (isDraw()) {
-        endGame(true);
+        } else {
+            // Switch Turns
+            swapTurns();
+            setBoardHoverClass();
+        }
+    } else if (board.classList.contains('pvai')) {
+        // player turn
+        placeMark(cell, currentClass);
+        if (checkWin(currentClass)) {
+            console.log('winner');
+            endGame(false);
 
-    } else {
-        // Switch Turns
-        swapTurns();
-        setBoardHoverClass();
+            // Check for Draw
+        } else if (isDraw()) {
+            endGame(true);
+
+        } else {
+            // Switch Turns
+            swapTurns();
+            setBoardHoverClass();
+        }
+
+        // ai turn
+        const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
+        let aiCellToMark = aiPlaceMark();
+        placeMark(aiCellToMark, currentClass);
+
+        if (checkWin(currentClass)) {
+            console.log('winner');
+            endGame(false);
+
+            // Check for Draw
+        } else if (isDraw()) {
+            endGame(true);
+
+        } else {
+            // Switch Turns
+            swapTurns();
+            setBoardHoverClass();
+        }
     }
 }
+
+
+// function handleClick(e) {
+//     console.log('clicked');
+//     const cell = e.target;
+//     const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
+
+//     // Place mark
+//     placeMark(cell, currentClass);
+
+//     // Check for win
+//     if (checkWin(currentClass)) {
+//         console.log('winner');
+//         endGame(false);
+
+//         // Check for Draw
+//     } else if (isDraw()) {
+//         endGame(true);
+
+//     } else {
+//         // Switch Turns
+//         swapTurns();
+//         setBoardHoverClass();
+//     }
+// }
 
 function isDraw() {
     return [...cellElements].every(cell => {
         return cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS)
-      })
+    })
 }
 
 function endGame(draw) {
@@ -87,7 +147,21 @@ function endGame(draw) {
 
 function placeMark(cell, currentClass) {
     cell.classList.add(currentClass);
+}
 
+function aiPlaceMark() {
+    let arrayWithCell = [];
+    // while (arrayWithCell.length === 0) {
+    //     const indexOfCell = Math.floor(Math.random() * (8 - 0)) + 0;
+    //     if (!cellElements[indexOfCell].classList.contains('x') || !cellElements[indexOfCell].classList.contains('circle')) {
+    //         arrayWithCell.push(cell);
+    //         return cell;
+    //     }
+    //     console.log('looping');
+        // for (cellElements.forEach(cell => {
+        //     if (cell.classList.)
+        // }))
+    // }
 }
 
 function swapTurns() {
