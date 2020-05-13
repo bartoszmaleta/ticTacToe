@@ -21,13 +21,13 @@ let circleTurn;
 startGame();
 
 cellElements.forEach(cell => {
-    cell.addEventListener('click', handleClick, { once: true})
+    cell.addEventListener('click', handleClick, { once: true })
 });
 
 function startGame() {
     circleTurn = false;
     cellElements.forEach(cell => {
-        cell.addEventListener('click', handleClick, { once: true})
+        cell.addEventListener('click', handleClick, { once: true })
     });
     setBoardHoverClass();
 }
@@ -45,19 +45,29 @@ function handleClick(e) {
         console.log('winner');
         endGame(false);
 
-    }
+        // Check for Draw
+    } else if (isDraw()) {
+        endGame(true);
 
-    // Check for Draw
-    // Switch Turns
-    swapTurns();
-    setBoardHoverClass();
+    } else {
+        // Switch Turns
+        swapTurns();
+        setBoardHoverClass();
+    }
+}
+
+function isDraw() {
+    return [...cellElements].every(cell => {
+        return cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS)
+      })
 }
 
 function endGame(draw) {
     console.log('endGame');
 
     if (draw) {
-
+        winningMessageTextElement.innerText = 'Draw!'
+        console.log('Draw')
     } else {
         // winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`;
         winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`
