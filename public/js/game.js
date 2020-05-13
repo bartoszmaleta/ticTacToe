@@ -23,71 +23,127 @@ startGame();
 
 restartButton.addEventListener('click', startGame);
 
-cellElements.forEach(cell => {
-    cell.addEventListener('click', handleClick, { once: true })
-});
+function activatePvpMode() {
+    board.classList.remove('pvp');
+    board.classList.remove('pvai');
+    board.classList.add('pvp');
+    board.style = 'display: grid';
+    document.getElementById('pvpButton').style = 'display: none';
+    document.getElementById('pvaiButton').style = 'display: none';
+}
+
+function activatePvaiMode() {
+    board.classList.remove('pvp');
+    board.classList.remove('pvai');
+    board.classList.add('pvai');
+    board.style = 'display: grid';
+    document.getElementById('pvpButton').style = 'display: none';
+    document.getElementById('pvaiButton').style = 'display: none';
+}
 
 function startGame() {
     circleTurn = false;
     cellElements.forEach(cell => {
+        // NEED FOR NEXT ROUNDS
         cell.classList.remove(X_CLASS);
         cell.classList.remove(CIRCLE_CLASS);
         cell.removeEventListener('click', handleClick);
+
+        // NEED FOR FIRST ROUND AND NEXT ROUNDS
         cell.addEventListener('click', handleClick, { once: true })
     });
     setBoardHoverClass();
 
-    // setting new game
+    // NEED FOR NEXT ROUNDS
     winningMessageElement.classList.remove('show');
 }
 
 function handleClick(e) {
+
     console.log('clicked');
     const cell = e.target;
-    const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
 
-    // Place mark
-    placeMark(cell, currentClass);
+    if (board.classList.contains('pvp')) {
+        let currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
+        console.log('pvp')
 
-    // Check for win
-    if (checkWin(currentClass)) {
-        console.log('winner');
-        endGame(false);
+        placeMark(cell, currentClass);
 
-        // Check for Draw
-    } else if (isDraw()) {
-        endGame(true);
+        if (checkWin(currentClass)) {
+            endGame(false);
+        } else if (isDraw()) {
+            endGame(true);
+        } else {
+            swapTurns();
+            setBoardHoverClass();
+        }
+    } else if (board.classList.contains('pvai')) {
+        let currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
 
-    } else {
-        // Switch Turns
-        swapTurns();
-        setBoardHoverClass();
+        placeMark(cell, currentClass);
+        
+        if (checkWin(currentClass)) {
+            endGame(false);
+
+        } else if (isDraw()) {
+            endGame(true);
+
+        } else {
+            swapTurns();
+            setBoardHoverClass();
+        }
+
+        currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
+        try {
+            aiPlaceMark(currentClass);
+        } catch (e) {
+            console.log(e);
+        }
+
+        if (checkWin(currentClass)) {
+            endGame(false);
+        } else if (isDraw()) {
+            endGame(true);
+
+        } else {
+            swapTurns();
+            setBoardHoverClass();
+        }
     }
 }
 
 function isDraw() {
     return [...cellElements].every(cell => {
         return cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS)
-      })
+    })
 }
 
 function endGame(draw) {
-    console.log('endGame');
-
     if (draw) {
         winningMessageTextElement.innerText = 'Draw!'
-        console.log('Draw')
     } else {
-        // winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`;
         winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`
-        console.log('notDraw')
     }
+    board.style = 'display: none';
+    document.getElementById('pvaiButton').style = 'display: inline';
+    document.getElementById('pvpButton').style = 'display: inline';
     winningMessageElement.classList.add('show');
 }
 
 function placeMark(cell, currentClass) {
     cell.classList.add(currentClass);
+}
 
+function aiPlaceMark(currentClass) {
+    let arrayWithEmptyCells = [];
+    cellElements.forEach(cell => {
+        if ((!cell.classList.contains('x')) && (!cell.classList.contains('circle'))) {
+            arrayWithEmptyCells.push(cell);
+        }
+    })
+
+    let randomCell = arrayWithEmptyCells[Math.floor(Math.random() * arrayWithEmptyCells.length)];
+    randomCell.classList.add(currentClass);
 }
 
 function swapTurns() {
