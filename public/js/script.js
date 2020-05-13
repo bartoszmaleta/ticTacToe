@@ -1,38 +1,38 @@
-isPlayerX = true;
-let count;
+// isPlayerX = true;
+// let count;
 
-const buttons = document.querySelectorAll(".box");
+// const buttons = document.querySelectorAll(".box");
 
-buttons.forEach(button => {
+// buttons.forEach(button => {
 
-    function updateButtonStatus() {
-        let currentBox = button.firstElementChild;
-        currentBox.setAttribute("class", 'player-x');
-        console.log(this);
-        button.removeEventListener('click', updateButtonStatus);
-    }
-    button.addEventListener('click', updateButtonStatus);
-    // button.document.classList="player-x";
+//     function updateButtonStatus() {
+//         let currentBox = button.firstElementChild;
+//         currentBox.setAttribute("class", 'player-x');
+//         console.log(this);
+//         button.removeEventListener('click', updateButtonStatus);
+//     }
+//     button.addEventListener('click', updateButtonStatus);
+//     // button.document.classList="player-x";
 
-});
+// });
 
-// find all buttons *
-//
-// add event addEventListener() to each button *
-//
-// add class to button *
-//
-// disable button *
-//
-// switch isPlayerX
+// // find all buttons *
+// //
+// // add event addEventListener() to each button *
+// //
+// // add class to button *
+// //
+// // disable button *
+// //
+// // switch isPlayerX
 
 
 //hamburger responsive
 function myFunction() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
-      x.className += " responsive";
+        x.className += " responsive";
     } else {
-      x.className = "topnav";
+        x.className = "topnav";
     }
-  }
+}
