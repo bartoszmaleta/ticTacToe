@@ -1,7 +1,3 @@
-/* * {
-    box-sizing: border-box;
-} */
-
 body {
     margin: 0;
     padding: 0;
@@ -68,3 +64,22 @@ h1 {
     color: white;
     opacity: 1;
 }
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+.grid-container.mainCont.board {
+    width: 5vw;
+    height: 50vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container.mainCont.board.cell {
+    width: 100px;
+    height: 100px;
+    background-attachment: black;
+}
+

@@ -10,8 +10,11 @@
     grid-area: left; 
 }
 
-.mainCont { 
-    grid-area: main; 
+.mainCont {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .rightCont { 

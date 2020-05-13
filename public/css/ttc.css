@@ -1,0 +1,34 @@
+body{
+
+}
+
+.game-grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 20em;
+    height: 20em;
+    background-color: black;
+}
+
+.box {
+
+}
+
+button{
+    width: 7em;
+    height: 7em;
+    background-color: white;
+    pointer-events: none;
+}
+
+.player-x {
+    background-image: url("../../resources/icon/x.png");
+    background-size: cover;
+}
+
+.player-o {
+    background-image: url("../../resources/icon/o.png");
+    background-size: cover;
+}
