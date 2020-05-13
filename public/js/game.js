@@ -125,8 +125,8 @@ function endGame(draw) {
         winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`
     }
     board.style = 'display: none';
-    document.getElementById('pvaiButton').style = 'display: inline';
-    document.getElementById('pvpButton').style = 'display: inline';
+    document.getElementById('pvaiButton').style = 'display: inline-block';
+    document.getElementById('pvpButton').style = 'display: inline-block';
     winningMessageElement.classList.add('show');
 }
 

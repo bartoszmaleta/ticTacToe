@@ -9,8 +9,8 @@
 }
 
 body { 
-    margin: 0;
-    /* background-color: darkgreen; */
+    /* margin: 0; */
+    background-color: darkgreen;
     /* font-size: 16px; */
 }
 
@@ -69,28 +69,30 @@ body {
     /* position: absolute; */
     /* background-color: red; */
 
-    background-image: url(../../resources/icon/x2new.png);
+    background-image: url(../../resources/icon/cross/cross6.png);
     /* background-size: 90%; */
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .board.x .cell:not(.x):not(.circle):hover {
-    background-image: url(../../resources/icon/x2new.png);
+    background-image: url(../../resources/icon/cross/cross6.png);
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.2;   
 }
 
 .board.circle .cell:not(.x):not(.circle):hover {
-    background-image: url(../../resources/icon/circleNew.png);
+    /* background-image: url(../../resources/icon/circleNew.png); */
+    background-image: url(../../resources/icon/circle/circle5.png);
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.5;   
 }
 
 .cell.circle {
-    background-image: url(../../resources/icon/circleNew.png);
+    /* background-image: url(../../resources/icon/circleNew.png); */
+    background-image: url(../../resources/icon/circle/circle5.png);
     background-repeat: no-repeat;
     background-position: center;
 }
