@@ -23,7 +23,28 @@ startGame();
 
 restartButton.addEventListener('click', startGame);
 
+function chooseGameMode() {
+    const pvpButton = document.getElementById('pvpButton');
+    const pvaiButton = document.getElementById('pvaiButton');
+
+}
+
+function activatePvpMode() {
+    board.classList.remove('pvp');
+    board.classList.remove('pvai');
+    board.classList.add('pvp');
+    board.style = 'display: grid';
+}
+
+function activatePvaiMode() {
+    board.classList.remove('pvp');
+    board.classList.remove('pvai');
+    board.classList.add('pvai');
+    board.style = 'display: grid';
+}
+
 function startGame() {
+
     circleTurn = false;
     cellElements.forEach(cell => {
         // NEED FOR NEXT ROUNDS
@@ -41,6 +62,15 @@ function startGame() {
 }
 
 function handleClick(e) {
+
+    // if ((!board.classList.contains('pvp')) || (!cell.classList.contains('pvai'))) {
+    //     cellElements.forEach(cell => {
+    //         cell.style = 'cursor: pointer';
+    //     })
+    // }
+
+
+
     console.log('clicked');
     const cell = e.target;
 
@@ -148,10 +178,13 @@ function endGame(draw) {
     if (draw) {
         winningMessageTextElement.innerText = 'Draw!'
         console.log('Draw')
+        board.style = 'display: none';
+
     } else {
         // winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`;
         winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`
         console.log('notDraw')
+        board.style = 'display: none';
     }
     winningMessageElement.classList.add('show');
 }

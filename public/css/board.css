@@ -10,6 +10,7 @@
 
 body { 
     margin: 0;
+    /* background-color: darkgreen; */
     /* font-size: 16px; */
 }
 
@@ -34,6 +35,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    /* cursor: not-allowed; */
     cursor: pointer;
 }
 
@@ -124,4 +126,15 @@ body {
 
 .winning-message.show {
     display: flex;
+}
+
+.gameModeButtons {
+    /* padding-top: 1em; */
+    display: flex;
+    flex-wrap: row wrap;
+    justify-content: center;
+}
+
+.board {
+    display: none;
 }

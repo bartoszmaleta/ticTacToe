@@ -14,7 +14,11 @@
 </head>
 
 <body>
-    <div class="board pvai" id="board">
+  <div class="gameModeButtons">
+    <button class="gameMode" id="pvpButton" onclick="activatePvpMode()">PVP</button>
+    <button class="gameMode" id="pvaiButton" onclick="activatePvaiMode()">PvAi</button>
+  </div>
+    <div class="board" id="board">
       <div class="cell" data-cell></div>
       <div class="cell" data-cell></div>
       <div class="cell" data-cell></div>
