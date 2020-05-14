@@ -13,6 +13,8 @@ const WINNING_COMBINATIONS = [
 
 const cellElements = document.querySelectorAll('[data-cell');
 const board = document.getElementById('board');
+const magicScrollLeft = document.getElementById('magicScrollLeft');
+const magicScrollRight = document.getElementById('magicScrollRight');
 const winningMessageElement = document.getElementById('winningMessage');
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]');
 const restartButton = document.getElementById('restartButton');
@@ -28,15 +30,33 @@ function activatePvpMode() {
     board.classList.remove('pvai');
     board.classList.add('pvp');
     board.style = 'display: grid';
+
+    // magicScrollLeft.classList.add('show');
+    // magicScrollRight.classList.add('show');
+    magicScrollLeft.style = 'visibility: visible; display: inline-block; width: 100px; height: 300px; overflow: visible;';
+    magicScrollRight.style = 'visibility: visible; display: inline-block; width: 100px; height: 300px; overflow: visible;';
+
     document.getElementById('pvpButton').style = 'display: none';
     document.getElementById('pvaiButton').style = 'display: none';
 }
 
 function activatePvaiMode() {
+    // magicScrollLeft.style = 'display: none';
+    // magicScrollRight.style = 'display: none';
+
     board.classList.remove('pvp');
     board.classList.remove('pvai');
     board.classList.add('pvai');
     board.style = 'display: grid';
+
+    // magicScrollLeft.classList.add('show');
+    // magicScrollRight.classList.add('show');
+    magicScrollLeft.style = 'visibility: visible; display: inline-block; width: 100px; height: 300px; overflow: visible;';
+    magicScrollRight.style = 'visibility: visible; display: inline-block; width: 100px; height: 300px; overflow: visible;';
+
+    // magicScrollLeft.style = 'display: inline-block';
+    // magicScrollRight.style = 'display: inline-block';
+
     document.getElementById('pvpButton').style = 'display: none';
     document.getElementById('pvaiButton').style = 'display: none';
 }
@@ -60,12 +80,10 @@ function startGame() {
 
 function handleClick(e) {
 
-    console.log('clicked');
     const cell = e.target;
 
     if (board.classList.contains('pvp')) {
         let currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
-        console.log('pvp')
 
         placeMark(cell, currentClass);
 
@@ -124,6 +142,13 @@ function endGame(draw) {
     } else {
         winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`
     }
+
+    magicScrollLeft.style = 'visibility: visible; display: none; width: 100px; height: 300px; overflow: visible;';
+    magicScrollRight.style = 'visibility: visible; display: none; width: 100px; height: 300px; overflow: visible;';
+
+    // magicScrollLeft.classList.remove('show');
+    // magicScrollRight.classList.remove('show');
+
     board.style = 'display: none';
     document.getElementById('pvaiButton').style = 'display: inline-block';
     document.getElementById('pvpButton').style = 'display: inline-block';
