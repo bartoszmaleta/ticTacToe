@@ -6,7 +6,8 @@
     align-content: space-between;
     width: 20em;
     height: 20em;
-    background-color: black;
+    background-color: transparent;
+    opacity: 41%;
 }
 
 button{
