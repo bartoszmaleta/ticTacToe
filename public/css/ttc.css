@@ -1,22 +1,33 @@
-body{
-
-}
-
-.game-grid{
+.game-grid {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-content: space-between;
     width: 20em;
     height: 20em;
-    background-color: black;
+    background-color: transparent;
+    opacity: 41%;
 }
 
-.box {
-
+.grid-container-ttc {
+    display: grid;
+    grid-template-areas:
+            'header header header header header header'
+            'navbar navbar navbar navbar navbar navbar'
+            'left main main main main right'
+            'footer footer footer footer footer footer';
 }
 
-button{
+.headerCont{
+    font-size: xxx-large;
+    display: flex;
+    grid-area: header;
+    justify-content: center;
+    margin: 2em;
+}
+
+button {
     width: 7em;
     height: 7em;
     background-color: white;

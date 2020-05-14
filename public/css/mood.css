@@ -1,0 +1,60 @@
+.mood {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.game-grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    width: 20em;
+    height: 20em;
+    background-color: black;
+}
+
+button{
+    width: 7em;
+    height: 7em;
+    background-color: white;
+    pointer-events: none;
+}
+
+#mood-sun {
+    background-image: url("../../resources/png/sun.png");
+    background-size: cover;
+}
+#mood-rain {
+    background-image: url("../../resources/png/rain.png");
+    background-size: cover;
+}
+#mood-glass {
+    background-image: url("../../resources/png/broken-glass.png");
+    background-size: cover;
+}
+#mood-animal {
+    background-image: url("../../resources/png/animal.png");
+    background-size: cover;
+}
+#mood-beer {
+    background-image: url("../../resources/png/beer.png");
+    background-size: cover;
+}
+#mood-food {
+    background-image: url("../../resources/png/food.jpg");
+    background-size: cover;
+}
+#mood-smile {
+    background-image: url("../../resources/png/smile.png");
+    background-size: cover;
+}
+#mood-chocolate {
+    background-image: url("../../resources/png/chocolate.png");
+    background-size: cover;
+}
+#mood-coffee {
+    background-image: url("../../resources/png/coffee.png");
+    background-size: cover;
+}
