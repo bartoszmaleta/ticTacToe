@@ -6,7 +6,7 @@
     --cell-size: 120px;
     /* --cell-size: 100px; */
     --mark-size: calc(var(--cell-size) * 0.9);
-    /* --cross-icon: ../../resources/icon/cross/cross6.png; */
+    --cross-icon: ../resources/icon/cross/cross6.png;
 }
 
 body { 
