@@ -64,12 +64,12 @@ h1 {
   opacity: 1;
 }
 
-hr {
+/* hr {
   color: whitesmoke;
   position: relative;
   display: flex;
   flex-direction: row;
-}
+} */
 
 .topnav {
   overflow: hidden;
@@ -93,7 +93,7 @@ hr {
 
 .topnav a.active {
   background-color: rgba(164, 95, 230, 0.2);
-  color: #efd4f0;
+  color: #e9bde7;
 }
 
 .topnav .icon {
@@ -133,7 +133,7 @@ hr {
 .icon {
   display: flex;
   flex-direction: column;
-  height: 48px;
+  height: 4px;
   justify-content: space-around;
   padding: 0 1em !important;
 }
@@ -141,6 +141,7 @@ hr {
 .bar {
   font-size: 3.5rem;
   line-height: 0;
-  /*padding: 7px 0;*/
+  padding: 7px 0;
   letter-spacing: -6px;
+  opacity: .5;
 }
