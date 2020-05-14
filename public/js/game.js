@@ -23,6 +23,10 @@ startGame();
 
 restartButton.addEventListener('click', startGame);
 
+function testAlert() {
+    alert('qweqwe');
+}
+
 function activatePvpMode() {
     board.classList.remove('pvp');
     board.classList.remove('pvai');
