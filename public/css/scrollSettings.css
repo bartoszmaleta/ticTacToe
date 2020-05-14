@@ -6,3 +6,7 @@
     float: right;
 }
 
+.scrollCircle {
+    position: absolute;
+    width: 100%;
+}

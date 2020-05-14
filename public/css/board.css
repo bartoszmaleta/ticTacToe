@@ -1,19 +1,14 @@
-*, *::after, *::before {
+/* *, *::after, *::before {
     box-sizing: border-box;
-}
+} */
 
 :root {
     --cell-size: 120px;
-    /* --cell-size: 100px; */
     --mark-size: calc(var(--cell-size) * 0.9);
     --cross-icon: ../resources/icon/cross/cross6.png;
 }
 
-body { 
-    /* margin: 0; */
-    background-color: darkgreen;
-    /* font-size: 16px; */
-}
+
 
 .board {
     /* width: 100vw; */
@@ -24,19 +19,24 @@ body {
     justify-items: center;
     align-items: center;
     grid-template-columns: repeat(3, auto);
+    /* position: static; */
+    /* position: relative; */
+    /* position: absolute; */
+    /* position: sticky; */
+    /* width: 100%; */
+    height: 50%;
+    width: 500px;
+    margin: 0;
 }
 
 .cell {
     width: var(--cell-size);
     height: var(--cell-size);
-    /* background-color: black; */
-    /* border: 1px solid white; */
     border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    /* cursor: not-allowed; */
+    /* position: relative; */
     cursor: pointer;
 }
 
@@ -67,7 +67,7 @@ body {
 
 .cell.x {
     background-image: url(../../resources/icon/cross/cross6.png);
-    /* background-size: 90%; */
+    background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
 }

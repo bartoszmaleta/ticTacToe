@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>TicTacToe Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../resources/icon/websiteIcon.png">
+
+    <link rel="stylesheet" href="../public/css/board.css">
+    <link rel="stylesheet" href="../public/css/modeButtons.css">
+    <link rel="stylesheet" href="../public/css/scrollSettings.css">
+    <link rel="stylesheet" href="../public/css/bodyStructure.css">
+    <link rel="stylesheet" href="../public/css/grid.css">
+
+
+    <link type="text/css" rel="stylesheet" href="../resources/magicscroll-trial/magicscroll/magicscroll.css" />
+    <script type="text/javascript" src="../resources/magicscroll-trial/magicscroll/magicscroll.js" defer></script>
+
+    <script type="text/javascript" src="../public/js/game.js" defer></script>
+    <script type="text/javascript" src="../public/js/circleChange.js" defer></script>
+    <script type="text/javascript" src="../public/js/crossChange.js" defer></script>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="headerCont">Header</div>
+        <div class="navCont">
+            <div class="box">
+                <a href="#" id="pvpButton" class="btn btn-white btn-animation-1" onclick="activatePvpMode()">PvP</a>
+              </div>
+              <div class="box">
+                <a href="#" id="pvaiButton" class="btn btn-white btn-animation-1" onclick="activatePvaiMode()">PvAI</a>
+              </div>
+        </div>
+        <div class="leftCont">Left
+            <div class="MagicScroll" data-options="orientation: vertical; height: 300px; keyboard: true">
+                <a onclick="changeToCross1()"><img src="../resources/icon/cross/cross1.svg" /></a>
+                <a onclick="changeToCross2()"><img src="../resources/icon/cross/cross2.svg" /></a>
+                <a onclick="changeToCross3()"><img src="../resources/icon/cross/cross3.svg" /></a>
+                <a onclick="changeToCross4()"><img src="../resources/icon/cross/cross4.svg" /></a>
+                <a onclick="changeToCross5()"><img src="../resources/icon/cross/cross5.svg" /></a>
+                <a onclick="changeToCross6()"><img src="../resources/icon/cross/cross6.png" /></a>
+                <a onclick="changeToCross7()"><img src="../resources/icon/cross/cross7.png" /></a>
+              </div>
+        </div>
+        <div class="mainCont">Main
+            <div class="board" id="board">
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+                <div class="cell" data-cell></div>
+            </div>
+        </div>
+
+        
+        <div class="rightCont">Right
+            <div class="MagicScroll" data-options="orientation: vertical; height: 300px; keyboard: true">
+                <a onclick="changeToCircle1()"><img src="../resources/icon/circle/circle1.png" /></a>
+                <a onclick="changeToCircle2()"><img src="../resources/icon/circle/circle2.png" /></a>
+                <a onclick="changeToCircle3()"><img src="../resources/icon/circle/circle3.png" /></a>
+                <a onclick="changeToCircle4()"><img src="../resources/icon/circle/circle4.png" /></a>
+                <a onclick="changeToCircle5()"><img src="../resources/icon/circle/circle5.png" /></a>
+                <a onclick="changeToCircle6()"><img src="../resources/icon/circle/circle6.png" /></a>
+                <a onclick="changeToCircle7()"><img src="../resources/icon/circle/circle7.png" /></a>
+              </div>
+        </div>
+        <div class="footerCont">Footer</div>
+    </div>
+</body>
+
+</html>
