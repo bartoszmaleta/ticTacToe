@@ -6,7 +6,7 @@
     --cell-size: 120px;
     /* --cell-size: 100px; */
     --mark-size: calc(var(--cell-size) * 0.9);
-    /* --path-x: ../../resources/icon/x2new.png; */
+    --cross-icon: ../resources/icon/cross/cross6.png;
 }
 
 body { 
@@ -66,10 +66,6 @@ body {
 }
 
 .cell.x {
-    /* content: ''; */
-    /* position: absolute; */
-    /* background-color: red; */
-
     background-image: url(../../resources/icon/cross/cross6.png);
     /* background-size: 90%; */
     background-repeat: no-repeat;
@@ -83,19 +79,17 @@ body {
     opacity: 0.2;   
 }
 
+.cell.circle {
+    background-image: url(../../resources/icon/circle/circle5.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .board.circle .cell:not(.x):not(.circle):hover {
-    /* background-image: url(../../resources/icon/circleNew.png); */
     background-image: url(../../resources/icon/circle/circle5.png);
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.5;   
-}
-
-.cell.circle {
-    /* background-image: url(../../resources/icon/circleNew.png); */
-    background-image: url(../../resources/icon/circle/circle5.png);
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .winning-message {
@@ -141,3 +135,4 @@ body {
 .board {
     display: none;
 }
+

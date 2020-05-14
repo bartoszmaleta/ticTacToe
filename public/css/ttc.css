@@ -1,4 +1,4 @@
-.game-grid{
+.game-grid {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -10,7 +10,24 @@
     opacity: 41%;
 }
 
-button{
+.grid-container-ttc {
+    display: grid;
+    grid-template-areas:
+            'header header header header header header'
+            'navbar navbar navbar navbar navbar navbar'
+            'left main main main main right'
+            'footer footer footer footer footer footer';
+}
+
+.headerCont{
+    font-size: xxx-large;
+    display: flex;
+    grid-area: header;
+    justify-content: center;
+    margin: 2em;
+}
+
+button {
     width: 7em;
     height: 7em;
     background-color: white;

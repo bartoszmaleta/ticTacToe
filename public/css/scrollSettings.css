@@ -1,3 +1,8 @@
-/* .MagicScroll {
-    right: 10%;
-} */
+.containerLeft {
+    float: left;
+}
+
+.MagicScrollCircle {
+    float: right;
+}
+
