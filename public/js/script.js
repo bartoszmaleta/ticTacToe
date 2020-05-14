@@ -23,8 +23,13 @@ function switchPlayers() {
     }
 }
 
-function markBox() {
+function displayWinner() {
+    confirm('Winner is: ' + currentPlayer)
 
+}
+
+function markBox() {
+    const gridGame = document.querySelector('.mainCont');
     for (let i = 0; i < buttons.length; i++) {
         let button = buttons[i];
         if (button.firstElementChild.className === '') {
@@ -33,7 +38,13 @@ function markBox() {
                 let currentSymbol = switchPlayers();
                 currentBox.setAttribute("class", currentSymbol);
                 if (checkWin(currentSymbol)) {
-                    alert('Winner ' + currentSymbol);
+                    setTimeout(function (){
+                        gridGame.style.visibility='hidden';
+
+                    },500);
+                    let str = 'Winner is ' + currentSymbol;
+
+
                 }
                 button.removeEventListener('click', updateButtonStatus);
             }
