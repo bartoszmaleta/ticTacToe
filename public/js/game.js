@@ -23,9 +23,16 @@ startGame();
 
 restartButton.addEventListener('click', startGame);
 
-function testAlert() {
-    alert('qweqwe');
-}
+// function changeToCross3() {
+//     alert('qweqwe');
+//     let cells = document.querySelectorAll('.cell');
+//     cells.forEach(cell => {
+//         if (cell.classList.contains('x')) {
+//             console.log(cell);
+//             cell.style = 'background-image: url(../resources/icon/cross/cross3.svg)';        
+//         }
+//     });
+// }
 
 function activatePvpMode() {
     board.classList.remove('pvp');
