@@ -6,4 +6,11 @@ function myFunction() {
     } else {
         x.className = "topnav";
     }
-}
+}\
+
+//click img
+$(document).ready(function() {
+    $('img.thumbnail').click(function() {
+        window.location.href = this.id + '.html';
+    });
+});

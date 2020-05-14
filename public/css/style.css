@@ -1,10 +1,11 @@
 body {
   margin: 0;
+  color: yellowgreen;
   padding: 0;
-  font-family: Arial;
   font-size: 17px;
   display: flex;
   flex-direction: column;
+  font-family: 'Work Sans', sans-serif;
 }
 
 #myVideo {
@@ -42,7 +43,7 @@ body {
 
 header {
   width: 100%;
-  background-color: rgba(255, 0, 0, 0.2);
+  background-color: rgba(238, 229, 229, 0.2);
   text-align: center;
   padding: .2em;
 }
@@ -60,7 +61,7 @@ footer {
 }
 
 h1 {
-  color: white;
+  color: rgb(245, 161, 4);
   opacity: 1;
 }
 
@@ -73,7 +74,7 @@ h1 {
 
 .topnav {
   overflow: hidden;
-  background-color: rgb(0, 34, 25, 0.5);
+  background-color: rgba(0, 34, 25, 0.5);
 }
 
 .topnav a {
@@ -142,6 +143,17 @@ h1 {
   font-size: 3.5rem;
   line-height: 0;
   padding: 7px 0;
-  letter-spacing: -6px;
+  letter-spacing: -11px;
   opacity: .5;
+}
+
+img {
+  opacity: 0.7;
+  border-radius: 5%;
+
+}
+
+#logo {
+ width: 50px;
+ opacity: 1;
 }
