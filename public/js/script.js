@@ -10,9 +10,8 @@ const winningOptions = [
     ['top-center', 'mid-center', 'bottom-center'],
     ['top-right', 'mid-right', 'bottom-right'],
     ['top-right', 'mid-center', 'bottom-left'],
-    ['top-left', 'mid-center', 'bottom-right']];
-let playerClicks = [];
-let computerClicks = [];
+    ['top-left', 'mid-center', 'bottom-right']
+];
 
 function switchPlayers() {
     if (currentPlayer === playerX) {
@@ -25,24 +24,21 @@ function switchPlayers() {
 }
 
 function markBox() {
+
     for (let i = 0; i < buttons.length; i++) {
         let button = buttons[i];
         if (button.firstElementChild.className === '') {
             function updateButtonStatus() {
                 let currentBox = button.firstElementChild;
-                currentBox.setAttribute("class", switchPlayers());
-                console.log(this.firstElementChild.className);
-                console.log(this.getAttribute('id'));
-                console.log(switchPlayers());
-                if (switchPlayers() === playerO) {
-                    playerClicks.push(this.getAttribute('id'));
-                } else {
-                    computerClicks.push(this.getAttribute('id'));
+                let currentSymbol = switchPlayers();
+                currentBox.setAttribute("class", currentSymbol);
+                if (checkWin(currentSymbol)) {
+                    alert('Winner ' + currentSymbol);
                 }
                 button.removeEventListener('click', updateButtonStatus);
             }
             button.addEventListener('click', updateButtonStatus);
-            // button.document.classList="player-x";
+
         }
     };
 }
@@ -50,10 +46,12 @@ function markBox() {
 markBox();
 
 function checkWin(currentClass) {
-    return winningOptions.some(combination => {
-        return combination.every(index => {
-            return cellElements[index].classList.contains(currentClass);
-        })
+    return winningOptions.some(id => {
+        let first = document.getElementById(id[0]).firstElementChild.className === currentClass;
+        let second = document.getElementById(id[1]).firstElementChild.className === currentClass;
+        let third = document.getElementById(id[2]).firstElementChild.className === currentClass;
+
+        return first && second && third;
     })
 }
 
