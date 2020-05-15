@@ -18,13 +18,18 @@
 </head>
 
 <body>
+
 <video autoplay muted loop id="myVideo">
     <source src="../resources/images/video.mp4" type="video/mp4">
     Your browser does not support HTML5 video.
 </video>
+<div class="winner">Winner
+</div>
+<div class="draw">Draw
+</div>
 <div class="container">
     <div class="topnav" id="myTopnav">
-        <a href="#home" class="active">Home</a>
+        <a href="index.html" class="active">Home</a>
         <a href="#news">News</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
@@ -42,47 +47,51 @@
             </article>
             <article class="project-text">
                 <div class="grid-container-ttc">
-                    <div class="headerCont"> * TIC TAC TOE *</div>
+                    <div class="headerCont"> TIC TAC TOE
+                        <INPUT TYPE="button" id="restartButton" onClick="history.go(0)" VALUE="Restart">
+                    </div>
                     <div class="navCont"></div>
                     <div class="leftCont"></div>
                     <div class="mainCont">
-                        <div class='game-grid'>
-                            <div class="box" id="top-left">
-                                <button></button>
-                            </div>
-                            <div class="box" id="top-center">
-                                <button></button>
-                            </div>
-                            <div class="box" id="top-right">
-                                <button></button>
-                            </div>
-                            <div class="box" id="mid-left">
-                                <button></button>
-                            </div>
-                            <div class="box" id="mid-center">
-                                <button></button>
-                            </div>
-                            <div class="box" id="mid-right">
-                                <button></button>
-                            </div>
-                            <div class="box" id="bottom-left">
-                                <button></button>
-                            </div>
-                            <div class="box" id="bottom-center">
-                                <button></button>
-                            </div>
-                            <div class="box" id="bottom-right">
-                                <button></button>
-                            </div>
+                        <div class="rightCont"></div>
+                        <div class="footerCont">
                         </div>
+                        <div class='game-grid'>
+
+                                    <div class="box" id="top-left">
+                                        <button></button>
+                                    </div>
+                                    <div class="box" id="top-center">
+                                        <button></button>
+                                    </div>
+                                    <div class="box" id="top-right">
+                                        <button></button>
+                                    </div>
+                                    <div class="box" id="mid-left">
+                                        <button></button>
+                                    </div>
+                                    <div class="box" id="mid-center">
+                                        <button></button>
+                                    </div>
+                                    <div class="box" id="mid-right">
+                                        <button></button>
+                                    </div>
+                                    <div class="box" id="bottom-left">
+                                        <button></button>
+                                    </div>
+                                    <div class="box" id="bottom-center">
+                                        <button></button>
+                                    </div>
+                                    <div class="box" id="bottom-right">
+                                        <button></button>
+                                    </div>
+                                </div>
+
                     </div>
-                    <div class="rightCont"></div>
-                    <div class="footerCont"></div>
                 </div>
             </article>
             <article class="project-text">
             </article>
-
         </div>
     </section>
     <footer>
