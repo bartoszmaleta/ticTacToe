@@ -1,12 +1,7 @@
-.containerLeft {
-    float: left;
+.MagicScroll {
+    display: none;
 }
 
-.MagicScrollCircle {
-    float: right;
-}
-
-.scrollCircle {
-    position: absolute;
-    width: 100%;
+.MagicScroll.show {
+    display: inline-block;
 }
