@@ -66,27 +66,27 @@
 }
 
 .cell.x {
-    background-image: url(../../resources/icon/cross/cross6.png);
+    background-image: url(../../resources/icon/cross/cross2.svg);
     background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .board.x .cell:not(.x):not(.circle):hover {
-    background-image: url(../../resources/icon/cross/cross6.png);
+    background-image: url(../../resources/icon/cross/cross2.svg);
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.2;   
 }
 
 .cell.circle {
-    background-image: url(../../resources/icon/circle/circle5.png);
+    background-image: url(../../resources/icon/circle/circle4.png);
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .board.circle .cell:not(.x):not(.circle):hover {
-    background-image: url(../../resources/icon/circle/circle5.png);
+    background-image: url(../../resources/icon/circle/circle4.png);
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.5;   
