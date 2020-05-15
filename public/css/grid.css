@@ -2,6 +2,13 @@
     grid-area: header; 
 }
 
+.headerCont{
+  font-size: xxx-large;
+  display: flex;
+  grid-area: header;
+  justify-content: center;
+}
+
 .navCont { 
     grid-area: navbar; 
 }
@@ -32,12 +39,12 @@
     'navbar navbar navbar navbar navbar navbar'
     'left main main main main right'
     'footer footer footer footer footer footer';
-  padding: 1em;
+  /* padding: 1em; */
 }
 
 .grid-container > div {
   background-color: transparent;
 
   text-align: center;
-  padding: 1em 0;
+  padding: 0.5em 0;
 }
