@@ -36,6 +36,8 @@ function activatePvpMode() {
     nameOfSecondPlayer = secondPlayerName;
     document.getElementById('player2Name').innerHTML = `${nameOfSecondPlayer}`;
 
+    document.getElementById('player1Name').style = 'display: block';
+    document.getElementById('player2Name').style = 'display: block';
 
     board.classList.remove('pvp');
     board.classList.remove('pvai');
@@ -56,6 +58,9 @@ function activatePvaiMode() {
 
     nameOfSecondPlayer = 'Computer';
     document.getElementById('player2Name').innerHTML = `${nameOfSecondPlayer}`;
+
+    document.getElementById('player1Name').style = 'display: block';
+    document.getElementById('player2Name').style = 'display: block';
 
     board.classList.remove('pvp');
     board.classList.remove('pvai');
@@ -158,6 +163,9 @@ function endGame(draw) {
 
     magicScrollLeft.style = 'visibility: visible; display: none; width: 100px; height: 300px; overflow: visible;';
     magicScrollRight.style = 'visibility: visible; display: none; width: 100px; height: 300px; overflow: visible;';
+
+    document.getElementById('player1Name').style = 'display: none';
+    document.getElementById('player2Name').style = 'display: none';
 
     // board.style = 'display: none';
     document.getElementById('pvaiButton').style = 'display: inline-block';
