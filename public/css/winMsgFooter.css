@@ -1,0 +1,88 @@
+:root {
+    --background-color: white;
+    --accent-color: green;
+}
+
+
+.winning-message {
+    color: var(--background-color);
+    display: none;
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: rgba(0, 0, 0, 0.9); */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* color: white; */
+    font-size: 5rem;
+    /* font-size: 10em; */
+}
+/* 
+.winning-message button {
+    font-size: 3rem;
+    background-color: white;
+    border: 1px solid black;
+    padding: .25em .5em;
+    cursor: crosshair;
+} */
+
+/* .winning-message button:hover {
+    background-color: black;
+    color: white;
+    border-color: white;
+} */
+
+.winning-message.show {
+    display: flex;
+}
+
+.btn {
+    background-color: var(--background-color);
+    color: #222;
+    padding: .5em 1em;
+    border: none;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+    border-radius: 1em;
+  
+    /* --background-color: #E3E3E3; */
+    /* --border-size: 2px; */
+    /* --accent-color: #0AF; */
+  }
+
+.btn.btn-background-circle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: var(--background-color);
+    border-radius: 50%;
+    transition: transform 700ms ease-in-out;
+
+    transform: scale(1.5);
+}
+
+.btn.btn-background-circle:hover::before, 
+.btn.btn-background-circle:focus::before {
+    transform: scale(0);
+}
+
+.btn.btn-background-circle {
+    font-size: 0.4em;
+    z-index: 1;
+    overflow: hidden;
+    background-color: var(--accent-color);
+    transition: color 700ms ease-in-out;
+}
+
+.btn.btn-background-circle:hover,
+.btn.btn-background-circle:focus {
+    color: white;
+}

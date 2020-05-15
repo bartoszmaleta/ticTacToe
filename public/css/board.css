@@ -102,11 +102,3 @@
 .board {
     display: none;
 }
-
-.MagicScroll {
-    display: none;
-}
-
-.MagicScroll.show {
-    display: inline-block;
-}
