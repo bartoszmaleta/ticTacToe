@@ -6,7 +6,7 @@ function myFunction() {
     } else {
         x.className = "topnav";
     }
-}\
+}
 
 //click img
 $(document).ready(function() {
