@@ -1,5 +1,5 @@
-const playerX = 'player-x';
-const playerO = 'player-o';
+const playerX = 'Player-x';
+const playerO = 'Player-o';
 let currentPlayer = playerX;
 const buttons = document.querySelectorAll(".box");
 const winningOptions = [
@@ -24,8 +24,7 @@ function switchPlayers() {
 }
 
 function displayWinner() {
-    confirm('Winner is: ' + currentPlayer)
-
+    alert('Winner is: ' + currentPlayer)
 }
 
 function markBox() {
@@ -40,16 +39,15 @@ function markBox() {
                 if (checkWin(currentSymbol)) {
                     setTimeout(function (){
                         gridGame.style.visibility='hidden';
-
+                    },400);
+                    let winner = 'Winner is ' + currentSymbol;
+                    setTimeout(function (){
+                        displayWinner();
                     },500);
-                    let str = 'Winner is ' + currentSymbol;
-
-
                 }
                 button.removeEventListener('click', updateButtonStatus);
             }
             button.addEventListener('click', updateButtonStatus);
-
         }
     };
 }
