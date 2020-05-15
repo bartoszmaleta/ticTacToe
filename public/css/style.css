@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   color: yellowgreen;
   padding: 0;
@@ -6,7 +6,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'Work Sans', sans-serif;
-}
+} */
 
 #myVideo {
   position: fixed;
@@ -153,6 +153,6 @@ img {
 }
 
 #logo {
- width: 50px;
+ width: 350px;
  opacity: 1;
 }

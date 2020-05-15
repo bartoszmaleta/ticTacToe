@@ -154,9 +154,9 @@ function endGame(draw) {
         winningMessageTextElement.innerText = 'Draw!'
     } else {
         if (circleTurn) {
-            winningMessageTextElement.innerText = `${nameOfSecondPlayer} Wins`;
+            winningMessageTextElement.innerText = `>>>> ${nameOfSecondPlayer} <<<< wins`;
         } else {
-            winningMessageTextElement.innerText = `${nameOfFirstPlayer} Wins`;
+            winningMessageTextElement.innerText = `>>>> ${nameOfFirstPlayer} <<<< wins`;
         }
         // winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`
     }
