@@ -18,6 +18,8 @@ const magicScrollRight = document.getElementById('magicScrollRight');
 const winningMessageElement = document.getElementById('winningMessage');
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]');
 const restartButton = document.getElementById('restartButton');
+let nameOfFirstPlayer;
+let nameOfSecondPlayer;
 
 let circleTurn;
 
@@ -26,13 +28,17 @@ startGame();
 restartButton.addEventListener('click', startGame);
 
 function activatePvpMode() {
+    let firstPlayerName = window.prompt('What is the name of player 1 - CROSS?');
+    nameOfFirstPlayer = firstPlayerName;
+
+    let secondPlayerName = window.prompt('What is the name of player 2 - CIRCLE?');
+    nameOfSecondPlayer = secondPlayerName;
+
     board.classList.remove('pvp');
     board.classList.remove('pvai');
     board.classList.add('pvp');
     board.style = 'display: grid';
 
-    // magicScrollLeft.classList.add('show');
-    // magicScrollRight.classList.add('show');
     magicScrollLeft.style = 'visibility: visible; display: inline-block; width: 100px; height: 300px; overflow: visible;';
     magicScrollRight.style = 'visibility: visible; display: inline-block; width: 100px; height: 300px; overflow: visible;';
 
@@ -41,21 +47,16 @@ function activatePvpMode() {
 }
 
 function activatePvaiMode() {
-    // magicScrollLeft.style = 'display: none';
-    // magicScrollRight.style = 'display: none';
+    let firstPlayerName = window.prompt('What is the name of player 1 - CROSS?');
+    nameOfFirstPlayer = firstPlayerName;
 
     board.classList.remove('pvp');
     board.classList.remove('pvai');
     board.classList.add('pvai');
     board.style = 'display: grid';
 
-    // magicScrollLeft.classList.add('show');
-    // magicScrollRight.classList.add('show');
     magicScrollLeft.style = 'visibility: visible; display: inline-block; width: 100px; height: 300px; overflow: visible;';
     magicScrollRight.style = 'visibility: visible; display: inline-block; width: 100px; height: 300px; overflow: visible;';
-
-    // magicScrollLeft.style = 'display: inline-block';
-    // magicScrollRight.style = 'display: inline-block';
 
     document.getElementById('pvpButton').style = 'display: none';
     document.getElementById('pvaiButton').style = 'display: none';
@@ -99,7 +100,7 @@ function handleClick(e) {
         let currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
 
         placeMark(cell, currentClass);
-        
+
         if (checkWin(currentClass)) {
             endGame(false);
 
@@ -140,14 +141,16 @@ function endGame(draw) {
     if (draw) {
         winningMessageTextElement.innerText = 'Draw!'
     } else {
-        winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`
+        if (circleTurn) {
+            winningMessageTextElement.innerText = `${nameOfSecondPlayer} Wins`;
+        } else {
+            winningMessageTextElement.innerText = `${nameOfFirstPlayer} Wins`;
+        }
+        // winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`
     }
 
     magicScrollLeft.style = 'visibility: visible; display: none; width: 100px; height: 300px; overflow: visible;';
     magicScrollRight.style = 'visibility: visible; display: none; width: 100px; height: 300px; overflow: visible;';
-
-    // magicScrollLeft.classList.remove('show');
-    // magicScrollRight.classList.remove('show');
 
     // board.style = 'display: none';
     document.getElementById('pvaiButton').style = 'display: inline-block';
