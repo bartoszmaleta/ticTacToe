@@ -54,6 +54,8 @@ function activatePvaiMode() {
     nameOfFirstPlayer = firstPlayerName;
     document.getElementById('player1Name').innerHTML = `${nameOfFirstPlayer}`;
 
+    nameOfSecondPlayer = 'Computer';
+    document.getElementById('player2Name').innerHTML = `${nameOfSecondPlayer}`;
 
     board.classList.remove('pvp');
     board.classList.remove('pvai');
