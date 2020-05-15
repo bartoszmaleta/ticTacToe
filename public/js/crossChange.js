@@ -55,7 +55,7 @@ function changeToCross6() {
     cells.forEach(cell => {
         if (cell.classList.contains('x')) {
             console.log(cell);
-            cell.style = 'background-image: url(../resources/icon/cross/cross6.svg)';
+            cell.style = 'background-image: url(../resources/icon/cross/cross6.png)';
         }
     });
 }
@@ -65,7 +65,7 @@ function changeToCross7() {
     cells.forEach(cell => {
         if (cell.classList.contains('x')) {
             console.log(cell);
-            cell.style = 'background-image: url(../resources/icon/cross/cross7.svg)';
+            cell.style = 'background-image: url(../resources/icon/cross/cross7.png)';
         }
     });
 }
