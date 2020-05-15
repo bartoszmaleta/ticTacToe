@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../public/css/scrollSettings.css">
     <link rel="stylesheet" href="../public/css/bodyStructure.css">
     <link rel="stylesheet" href="../public/css/grid.css">
+    <link rel="stylesheet" href="../public/css/playerDetails.css">
     <!-- <link rel="stylesheet" media="screen" href="../public/css/ttc.css"> -->
 
 
@@ -35,7 +36,7 @@
     </video>
     <div class="container">
         <div class="topnav" id="myTopnav">
-            <a href="#home" class="active">Home</a>
+            <a href="index.html" class="active">Home</a>
             <a href="#news">News</a>
             <a href="#contact">Contact</a>
             <a href="#about">About</a>
@@ -65,6 +66,7 @@
                             </div>
                         </div>
                         <div class="leftCont">Left
+                            <div class="playerName" id="player1Name"></div>
                             <div class="MagicScroll" id="magicScrollLeft"
                                 data-options="orientation: vertical; height: 300px; keyboard: true">
                                 <a onclick="changeToCross1()"><img src="../resources/icon/cross/cross1.svg" /></a>
@@ -96,6 +98,7 @@
 
 
                         <div class="rightCont">Right
+                            <div class="playerName" id="player2Name"></div>
                             <div class="MagicScroll" id="magicScrollRight"
                                 data-options="orientation: vertical; height: 300px; keyboard: true">
                                 <a onclick="changeToCircle1()"><img src="../resources/icon/circle/circle1.png" /></a>

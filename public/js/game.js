@@ -30,9 +30,14 @@ restartButton.addEventListener('click', startGame);
 function activatePvpMode() {
     let firstPlayerName = window.prompt('What is the name of player 1 - CROSS?');
     nameOfFirstPlayer = firstPlayerName;
+    document.getElementById('player1Name').innerHTML = `${nameOfFirstPlayer}`;
 
     let secondPlayerName = window.prompt('What is the name of player 2 - CIRCLE?');
     nameOfSecondPlayer = secondPlayerName;
+    document.getElementById('player2Name').innerHTML = `${nameOfSecondPlayer}`;
+
+    document.getElementById('player1Name').style = 'display: block';
+    document.getElementById('player2Name').style = 'display: block';
 
     board.classList.remove('pvp');
     board.classList.remove('pvai');
@@ -49,6 +54,13 @@ function activatePvpMode() {
 function activatePvaiMode() {
     let firstPlayerName = window.prompt('What is the name of player 1 - CROSS?');
     nameOfFirstPlayer = firstPlayerName;
+    document.getElementById('player1Name').innerHTML = `${nameOfFirstPlayer}`;
+
+    nameOfSecondPlayer = 'Computer';
+    document.getElementById('player2Name').innerHTML = `${nameOfSecondPlayer}`;
+
+    document.getElementById('player1Name').style = 'display: block';
+    document.getElementById('player2Name').style = 'display: block';
 
     board.classList.remove('pvp');
     board.classList.remove('pvai');
@@ -151,6 +163,9 @@ function endGame(draw) {
 
     magicScrollLeft.style = 'visibility: visible; display: none; width: 100px; height: 300px; overflow: visible;';
     magicScrollRight.style = 'visibility: visible; display: none; width: 100px; height: 300px; overflow: visible;';
+
+    document.getElementById('player1Name').style = 'display: none';
+    document.getElementById('player2Name').style = 'display: none';
 
     // board.style = 'display: none';
     document.getElementById('pvaiButton').style = 'display: inline-block';
