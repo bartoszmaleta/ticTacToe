@@ -149,10 +149,14 @@ function endGame(draw) {
     // magicScrollLeft.classList.remove('show');
     // magicScrollRight.classList.remove('show');
 
-    board.style = 'display: none';
+    // board.style = 'display: none';
     document.getElementById('pvaiButton').style = 'display: inline-block';
     document.getElementById('pvpButton').style = 'display: inline-block';
     winningMessageElement.classList.add('show');
+}
+
+function hideBoard() {
+    board.style = 'display: none';
 }
 
 function placeMark(cell, currentClass) {
